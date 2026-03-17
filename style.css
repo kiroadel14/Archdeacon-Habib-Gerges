@@ -1,0 +1,79 @@
+html,
+body {
+  width: 100%;
+  height: 100%;
+  margin: 0;
+}
+
+body {
+  background: url("bg.jpg.jpeg") no-repeat center center fixed;
+  background-size: cover;
+  background-size: 100% 180%;
+}
+
+/* طبقة التغميق */
+.overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(41, 38, 38, 0.55);
+  z-index: 1;
+}
+
+/* الصندوق */
+.box {
+  position: relative;
+  z-index: 3;
+  background: rgba(19, 47, 58, 0.9);
+  padding: 40px;          /* المسافة الداخلية */
+  border-radius: 20px;
+  text-align: center;
+  width: 520px;           /* عرض المربع */
+  margin: 0 auto;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+/* الإدخالات */
+input {
+  width: 100%;
+  padding: 10px;
+  margin: 15px 0;
+  border-radius: 8px;
+  border: none;
+}
+
+/* الأزرار */
+button {
+  padding: 10px;
+  width: 100%;
+  background: #f4a261;
+  border: none;
+  border-radius: 8px;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+button:hover {
+  background: #e76f51;
+}
+
+/* رسائل الخطأ */
+#error {
+  color: #ff6b6b;
+  margin-top: 10px;
+}
+.last-note {
+  margin-bottom: 40px;   /* المسافة قبل "مين أنا؟" */
+  margin-top: 20px;
+  font-weight: bold;
+}
+.last-note{
+  text-align: center;
+  margin-top: 10px;
+  font-weight: bold;
+}
+#puzzleTitle{
+  font-size: 28px;   /* كبّر الرقم براحتك */
+  font-weight: bold;
+  text-align: center;
+}

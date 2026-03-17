@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <title>دخلنا في الزعل بقى</title>
+  <link rel="stylesheet" href="style.css">
+
+  <style>
+    .intro-img {
+      width: 46%;
+      border-radius: 15px;
+      margin-bottom: 20px;
+    }
+
+    .intro-text {
+      font-size: 22px;
+      margin-bottom: 25px;
+      font-weight: bold;
+      line-height: 1.6;
+    }
+
+    button {
+      padding: 12px 25px;
+      font-size: 18px;
+      border-radius: 10px;
+      border: none;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+
+<div class="overlay"></div>
+
+<div class="box">
+
+  <!-- الصورة هتتغير حسب الشخصية -->
+  <img id="introImage" class="intro-img">
+
+  <div class="intro-text">
+   # حق مريم راجع <br> 
+   # يااختي من بعدك موجوع <br> 
+اول حاجه هتروح للخادم اللي طلعلك في الصوره فوق دي و هتقعد معاه من 10 دقايق لربع ساعة علي حسب هو هيخلص امتى هيتكلم عن نفسه وعن التهم اللي متهم بيها بعد ما يخلص عندك 3 اسألة بس تسألهم للخادم وهو هيجاوبك عليهم ودا هيتقرر لما تروح لكل خادم ولما تخلص مع كل خادم قبل ما تمشي هيديك لغز هتحله وبعد ماتحله هتكتب الكود اللي طلعلك من اللغز عشان تعرف مين الخادم اللي بعده  </div>
+
+  <button onclick="enterPuzzle()">بدايه الالغاز</button>
+</div>
+
+<script>
+  // رقم الشخصية اللي الفريق دخل عليها
+  const character = localStorage.getItem("currentCharacter");
+
+  // صور كل شخصية
+  const characterImages = {
+    1: "epj.k.jpeg",
+    2: "epj.S.jpeg",
+    3: "epj.B.jpeg",
+    4: "eoj.A.jpeg",
+    5: "epj.y.jpeg"
+  };
+
+  // تعيين الصورة
+  const img = document.getElementById("introImage");
+  img.src = characterImages[character] || "intro.jpg";
+
+  function enterPuzzle() {
+    const pathId = localStorage.getItem("pathId");
+
+    localStorage.setItem("introSeen_path_" + pathId, "true");
+    localStorage.setItem("firstCharacterChosen_path_" + pathId, "true");
+
+    window.location.href = "puzzle.html";
+  }
+</script>
+
+</body>
+</html>

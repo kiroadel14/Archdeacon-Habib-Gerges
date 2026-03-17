@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <title> صفحة الخدام </title>
+  <link rel="stylesheet" href="style.css">
+
+  <style>
+    #charName {
+      font-size: 32px;
+      font-weight: bold;
+      margin-bottom: 10px;
+    }
+
+    #charInfo {
+      line-height: 2;
+      text-align: right;
+      margin-bottom: 20px;
+    }
+
+    .choices {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 12px;
+      margin-top: 20px;
+    }
+
+    .choice {
+      background: #1e3d4d;
+      border-radius: 12px;
+      cursor: pointer;
+      overflow: hidden;
+      text-align: center;
+      padding-bottom: 10px;
+      transition: transform 0.2s, opacity 0.2s;
+    }
+
+    .choice:hover {
+      transform: scale(1.05);
+    }
+
+    .choice img {
+      width: 100%;
+      height: 150px;
+      object-fit: cover;
+    }
+
+    .choice span {
+      display: block;
+      margin-top: 6px;
+      color: #fff;
+      font-size: 14px;
+    }
+
+    .hidden {
+      display: none;
+    }
+
+    #msg {
+      color: #ff6b6b;
+      margin-top: 15px;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+
+<div class="overlay"></div>
+
+<div class="box">
+  <div id="charName"></div>
+  <div id="charInfo"></div>
+
+  <h3>مين أنا؟</h3>
+
+  <div class="choices">
+    <div class="choice" data-id="1" onclick="checkChoice(1)">
+      <img src="p1.jpgK.jpeg">
+      <span>المتهم الاول</span>
+    </div>
+    <div class="choice" data-id="2" onclick="checkChoice(2)">
+      <img src="p2.jpgS.jpeg">
+      <span>المتهم التاني</span>
+    </div>
+    <div class="choice" data-id="3" onclick="checkChoice(3)">
+      <img src="p3.jpgB.jpeg">
+      <span>المتهم التالت</span>
+    </div>
+    <div class="choice" data-id="4" onclick="checkChoice(4)">
+      <img src="p4.jpgA.jpeg">
+      <span>المتهم الرابع</span>
+    </div>
+    <div class="choice" data-id="5" onclick="checkChoice(5)">
+      <img src="p5.jpgy.jpeg">
+      <span>المتهم الخامس</span>
+    </div>
+  </div>
+<h3> الخدام اللي زي العسل </h3>
+  <p id="msg"></p>
+</div>
+
+<script src="script.js"></script>
+
+<script>
+  const character = getCurrentCharacter();
+  if (!character) window.location.href = "index.html";
+
+  const used = JSON.parse(localStorage.getItem("usedCharacters") || "[]");
+
+  const characters = {
+    1:{
+      name:" مساعد أمينة الخدمة",
+      info:`
+        • خادم بقاله سنين في الخدمة<br>
+        •  شايف نفسه الأحق بأنه يمسك أمين الخدمة من وجه نظره<br>
+        • عنده ديون مالية كتير <br>
+        • علاقته قريبة بمريم <br>
+        • شغال في صيداليه <br>
+        • أبونا شافه عن النهر لما أبونا كان بيركب المخدومين   <br>
+<div class="last-note"> الخادم دا شعره كيرلي </div>
+      `
+    },
+    
+    2:{
+      name:"خادم قديم في الخدمة",
+      info:`
+        • هادي وذكي وغامض <br>
+        • كان دايمًا بيتخانق مع مريم <br>
+        • كان حاسس إنه هيبقى مساعد أمين الخدمة بس اتظلم <br>
+        • كان عايز يسيب الخدمه بسبب مريم <br>
+        • أوضة كانت لازقة جمب أوضه أمينة الخدمة اللي اتقتلت <br>
+        • جزمته كان عليها دم <br>
+         <div class="last-note"> الخادم دا لابس كاب </div>
+
+      `
+    },
+    3:{
+      name:"خادم عائد",
+      info:`
+        • وقف بسبب خلافات مجهولة مع أمينة الخدمه <br>
+        • ساب الخدمة فترة<br>
+        • تصرفاته غريبة <br>
+        • بيراقب مريم <br>
+        • محدش يعرف سبب رجوعه <br>
+        • كان مدخن <br>
+        <div class="last-note"> الخادم دا جندي فالجيس </div>
+      `
+    },
+    4:{
+      name:"طباخ الخدمة",
+      info:`
+        • بيدرس تمثيل <br>
+        • هادي <br>
+        • مش راضي عن تصرفات مريم <br>
+        •  أمينة الخدمة كان بتهدده بنقله لخدمة تانية<br>
+        • السكينة اللي مريم اتقتلت بيها كانت سكينة مطبخ وهو المسؤل عن المطبخ<br>
+        
+        <div class="last-note">  خادمة مش خادم </div>
+
+      `
+    },
+    5:{
+      name:"مسؤول ميزانية الخدمة",
+      info:`
+        • ملاحظ كويس <br>
+        • فلوس الميزانية كانت بتبقى ناقصة <br>
+        • قريب من المخدومين <br>
+        • قال ان مساعد أمينة الخدمة كان بيستلف منه فلوس <br>
+<div class="last-note">   الخادم دا لابس تيشرت ابيض وعلي جاكت اسود فالصورة  </div>
+      `
+    }
+  };
+
+  document.getElementById("charName").textContent =
+    characters[character].name;
+
+  document.getElementById("charInfo").innerHTML =
+    characters[character].info;
+
+  used.forEach(id => {
+    const el = document.querySelector(`.choice[data-id="${id}"]`);
+    if (el) el.classList.add("hidden");
+  });
+
+  function checkChoice(num) {
+    const msg = document.getElementById("msg");
+    if (num === character) {
+      goToPuzzle();
+    } else {
+      msg.textContent = " منتا لو غلطت هنا يبقى مش مستاهلة تكمل بصراحه ";
+    }
+  }
+</script>
+
+</body>
+</html>

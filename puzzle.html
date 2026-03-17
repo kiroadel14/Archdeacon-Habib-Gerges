@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <title> اوعى تقولي ان اللغز صعب عليك</title>
+  <link rel="stylesheet" href="style.css">
+
+  <style>
+    .puzzle-img {
+      width: 55%;
+      border-radius: 15px;
+      margin-bottom: 20px;
+    }
+
+    .puzzle-text {
+      font-size: 22px;
+      font-weight: bold;
+      margin-bottom: 20px;
+      line-height: 1.6;
+      text-align: center;
+    }
+  </style>
+</head>
+<body>
+
+<div class="overlay"></div>
+
+<div class="box">
+
+  <!-- صورة القائد الحالي -->
+  <img id="puzzleImage" class="puzzle-img">
+
+  <!-- سؤال اللغز -->
+  <div id="puzzleQuestion" class="puzzle-text"></div>
+
+  <input type="text" id="answerInput" placeholder=" حط الكود">
+  <button onclick="solvePuzzle()"> دوس </button>
+
+  <p id="msg" style="color:#ff6b6b;font-weight:bold;"></p>
+
+</div>
+
+<script src="script.js"></script>
+
+<script>
+  /* =========================
+     القائد الحالي
+  ========================== */
+  const character = Number(localStorage.getItem("currentCharacter"));
+
+  if (!character) {
+    window.location.href = "index.html";
+  }
+
+  /* =========================
+     صور القادة
+  ========================== */
+  const characterImages = {
+    1: "epj.k.jpeg",
+    2: "epj.S.jpeg",
+    3: "epj.B.jpeg",
+    4: "eoj.A.jpeg",
+    5: "epj.y.jpeg"
+  };
+
+  document.getElementById("puzzleImage").src =
+    characterImages[character];
+
+  /* =========================
+     الألغاز (زي ما طلبت)
+  ========================== */
+  
+  const puzzles = {
+    1: {      
+      q: " روح لكيرو عادل عشان تقعد معاه ومفروض هتاخد منه في الاخر لغز   { لغز المينص (-) } عشان تدخل علي الخادم اللي بعده حله واكتب الكود هنا ",
+   
+      a: "032314"
+    },
+    2: {
+        q: "روح لتوماس عشان تقعد معاه ومفروض هتاخد منه في الاخر لغز { لغز القفل } عشان تدخل علي الخادم اللي بعده حله واكتب الكود هنا",
+       a: "042"
+    },
+    3: {    
+       q: "روح لجورج عشان تقعد معاه و مفروض  هتاخد منه في الاخر لغز      { لغز المتاهه } عشان تدخل علي الخادم اللي بعده حله واكتب الكود هنا",
+       a: "9516"
+},
+    4: {     
+        q: " روح لمهرائيل عشان تقعد معاها و مفروض هتاخد منها في الاخر لغز   { لغز الأسئلة } عشان تدخل علي الخادم اللي بعده حله واكتب الكود هنا",
+a: "8160"   
+
+    },
+    5: {
+            q: "روح لبافلي عشان تقعد معاه و مفروض هتاخد منه في الاخر لغز       { لغز البازل } عشان تدخل علي الخادم اللي بعده حله واكتب الكود هنا",
+ 
+      a: "A182530"
+
+    }
+  };
+
+  /* =========================
+     عرض سؤال اللغز
+  ========================== */
+document.getElementById("puzzleQuestion").innerHTML =
+    "# كلنا وراكي يا مريم<br>" +
+    "# عريس الجنة<br><br>" +
+    puzzles[character].q;
+
+  /* =========================
+     التحقق من الحل
+  ========================== */
+  function solvePuzzle() {
+    const userAnswer =
+      document.getElementById("answerInput").value.trim();
+
+    if (userAnswer === puzzles[character].a) {
+      nextStep(); // انتقال للمرحلة اللي بعدها
+    } else {
+      document.getElementById("msg").textContent =
+        "جرب تاني كدا";
+    }
+  }
+</script>
+
+</body>
+</html>

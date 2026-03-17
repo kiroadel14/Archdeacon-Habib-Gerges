@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <title>آخر متهم</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="overlay"></div>
+
+<div class="box">
+
+  <div id="charName"></div>
+  <div id="charInfo"></div>
+
+  <button onclick="goNext()">كمل</button>
+
+</div>
+
+<script src="script.js"></script>
+
+<script>
+  const character = Number(localStorage.getItem("currentCharacter"));
+
+  const characters = {
+    1:{
+      name:" مساعد أمينة الخدمة",
+      info:`
+        • خادم بقاله سنين في الخدمة<br>
+        •  شايف نفسه الأحق بأنه يمسك أمين الخدمة من وجه نظره<br>
+        • عنده ديون مالية كتير <br>
+        • علاقته قريبة بمريم <br>
+        • شغال في صيداليه <br>
+        • أبونا شافه عن النهر لما أبونا كان بيركب المخدومين   <br>
+<div class="last-note"> الخادم دا شعره كيرلي </div>
+      `
+    },
+    
+    2:{
+      name:"خادم قديم في الخدمة",
+      info:`
+        • هادي وذكي وغامض <br>
+        • كان دايمًا بيتخانق مع مريم <br>
+        • كان حاسس إنه هيبقى مساعد أمين الخدمة بس اتظلم <br>
+        • كان عايز يسيب الخدمه بسبب مريم <br>
+        • أوضة كانت لازقة جمب أوضه أمينة الخدمة اللي اتقتلت <br>
+        • جزمته كان عليها دم <br>
+         <div class="last-note"> الخادم دا لابس كاب </div>
+
+      `
+    },
+    3:{
+      name:"خادم عائد",
+      info:`
+        • وقف بسبب خلافات مجهولة مع أمينة الخدمه <br>
+        • ساب الخدمة فترة<br>
+        • تصرفاته غريبة <br>
+        • بيراقب مريم <br>
+        • محدش يعرف سبب رجوعه <br>
+        • كان مدخن <br>
+        <div class="last-note"> الخادم دا جندي فالجيس </div>
+      `
+    },
+    4:{
+      name:"طباخ الخدمة",
+      info:`
+        • بيدرس تمثيل <br>
+        • هادي <br>
+        • مش راضي عن تصرفات مريم <br>
+        •  أمينة الخدمة كان بتهدده بنقله لخدمة تانية<br>
+        • السكينة اللي مريم اتقتلت بيها كانت سكينة مطبخ وهو المسؤل عن المطبخ<br>
+        
+        <div class="last-note">  خادمة مش خادم </div>
+
+      `
+    },
+    5:{
+      name:"مسؤول ميزانية الخدمة",
+      info:`
+        • ملاحظ كويس <br>
+        • فلوس الميزانية كانت بتبقى ناقصة <br>
+        • قريب من المخدومين <br>
+        • قال ان مساعد أمينة الخدمة كان بيستلف منه فلوس <br>
+<div class="last-note">   الخادم دا لابس تيشرت ابيض وعلي جاكت اسود فالصورة  </div>
+      `
+    }
+  };
+  document.getElementById("charName").textContent =
+    characters[character].name;
+
+  document.getElementById("charInfo").innerHTML =
+    characters[character].info;
+
+  function goNext() {
+    nextStep(); // 👈 دي اللي هتوديه before-end
+  }
+</script>
+
+</body>
+</html>

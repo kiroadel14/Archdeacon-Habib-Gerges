@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <title>قبل النهاية </title>
+  <link rel="stylesheet" href="style.css">
+
+  <style>
+    .final-img {
+      width: 55%;
+      border-radius: 15px;
+      margin-bottom: 25px;
+    }
+
+    .final-text {
+      font-size: 24px;
+      font-weight: bold;
+      margin-bottom: 30px;
+      text-align: center;
+    }
+
+    button {
+      padding: 12px 30px;
+      font-size: 18px;
+      border-radius: 10px;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+
+<div class="overlay"></div>
+
+<div class="box">
+
+  <img id="lastCharacterImg" class="final-img">
+
+  <div class="final-text">
+ مفروض تكون اخت ورقه فيها لغز عباره عن ارقام وفي نجوم من الخادم اللي فالصورة هنا  </div>
+
+  <button onclick="goToEnd()"> قربنا نخلص وانت شكلك موصلتش لأي حاجه دوس هنا عشان تدخل علي اللي بعده </button>
+
+</div>
+
+<script>
+  const pathId = localStorage.getItem("pathId");
+
+  const paths = {
+    1: { characters:[1,4,5,3,2] },
+    2: { characters:[2,1,4,5,3] },
+    3: { characters:[3,2,1,4,5] },
+    4: { characters:[4,5,3,2,1] },
+    5: { characters:[5,3,2,1,4] }
+  };
+
+  const characterImages = {
+    1: "epj.k.jpeg",
+    2: "epj.S.jpeg",
+    3: "epj.B.jpeg",
+    4: "eoj.A.jpeg",
+    5: "epj.y.jpeg"
+  };
+
+  // آخر قائد فعلي في مسار الفريق
+  const lastCharacter =
+    paths[pathId].characters[
+      paths[pathId].characters.length - 1
+    ];
+
+  document.getElementById("lastCharacterImg").src =
+    characterImages[lastCharacter];
+
+  function goToEnd() {
+    window.location.href = "final.html";
+  }
+</script>
+
+</body>
+</html>

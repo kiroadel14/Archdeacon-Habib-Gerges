@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <title>FCDS Sports Day II</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<script>
+  // إعادة السماح بظهور intro عند تشغيل الموقع من جديد
+  Object.keys(localStorage).forEach(key => {
+    if (key.startsWith("introSeen_path_")) {
+      localStorage.removeItem(key);
+    }
+    if (key.startsWith("firstCharacterChosen_path_")) {
+      localStorage.removeItem(key);
+    }
+  });
+</script>
+<body>
+  <div class="overlay"></div>
+  <div class="logos">
+  </div>
+  <div class="box">
+    <h1> دخل الكود اللي المفروض انك جبته من اللغز اللي انت هتحله من ورقه المقدمة وخلي بالك عشان الدنيا كبيره جوا </h1>
+    <input type="text" id="codeInput">
+    <button onclick="checkCode()"> ادخل يلا  </button>
+    <p id="error"></p>
+  </div>
+  <script src="script.js"></script>
+</body>
+</html>
