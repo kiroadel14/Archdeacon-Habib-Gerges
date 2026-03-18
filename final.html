@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<title>النهاية</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="overlay"></div>
+
+<div class="box">
+  <h2>«اِحْمِلُوا بَعْضُكُمْ أَثْقَالَ بَعْضٍ، وَهكَذَا تَمِّمُونَ نَامُوسَ الْمَسِيحِ» (غلاطية 6: 2)
+ </h2>
+  <h3>
+كدا انت دلوقتي عديت علي كل الخدام وجمعت معلومات من كل خادم قعدت معاه مفروض تكون جمعت كل دا وربطت الاحداث ببعض ومفروض في المرحله دي تكون علي الاقل عندك ادلة واضحة علي اتنين من الخدام بالاثباتات بتاعتها والمفروض كل فريق اخد ورقة من كل اخر قائد راحله فيها لغز عشان عندنا دلوقتي عندنا فديو وعايزين نشغلوا والمفروض بعد ما تتفرج علي الفديو كل فريق بيقعد بيقعد ما نفسه وبيحل الجريمه بيطلع حاجتين مين القانل ويحكلنا بالاثباتات ازاي قتله قدامكو 10 دقايق من بعد ما تتفرجوا علي الفديو  </h3>
+ 
+<h4>
+محتاجين تتعاونوا كلكو عشان تعرفو تحلو اللغز اللي هيشغل الفديو</h4>
+
+<input type="text" id="videoCode" placeholder="اكتب كود الفيديو">
+
+<button onclick="checkVideoCode()">افتح الفيديو</button>
+
+<p id="msg" style="color:#ff6b6b;font-weight:bold;"></p>
+
+</div>
+
+<script>
+
+function checkVideoCode(){
+
+const code =
+document.getElementById("videoCode").value.trim();
+
+const correctCode = "8491772035";  // غير الكود براحتك
+
+if(code === correctCode){
+
+window.location.href = "video.html";
+
+}else{
+
+document.getElementById("msg").textContent =
+"الكود غلط... حاول تاني";
+
+}
+
+}
+
+</script>
+
+</body>
+</html>
